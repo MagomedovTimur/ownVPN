@@ -4,4 +4,4 @@ ufw allow 443/tcp
 git clone https://github.com/MagomedovTimur/ownVPN
 cd ownVPN
 rm -r /var/www/html/
-mv -R src/html/ /var/www/
+mv src/html/ /var/www/
