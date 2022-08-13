@@ -1,3 +1,13 @@
+<?php
+
+	session_start();
+	if ($_SESSION['logged'] === TRUE){
+		header("Location: /");
+		die();
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,17 +27,9 @@
 			<h1>Welcome</h1>
 			
 			<form id="loginForm" class="form">
-				<input type="text" placeholder="E-mail">
-				<input type="password" placeholder="Password">
-				<button type="submit" id="login-button">Login</button>
-				<p class="lastButton">Register</p>
-			</form>
-			<form id="registerForm" class="form" style="display: none;">
-				<input type="text" placeholder="E-mail">
-				<input type="password" placeholder="Password">
-				<input type="password" placeholder="Repeat password">
-				<button type="submit" id="login-button">Register</button>
-				<p class="lastButton">Login</p>
+				<input id="username" type="text" placeholder="Username">
+				<input id="password" type="password" placeholder="Password">
+				<button type="submit" id="login-button" onlick="loginPost();">Login</button>
 			</form>
 		</div>
 		

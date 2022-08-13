@@ -142,3 +142,36 @@ window.addEventListener("optimizedResize", function() {
     	resizeCommandOutput();
 });
 
+// Logout on logout button click
+$("#logoutBtn").click(function(){
+	$.post( "logout/index.php", {});
+	$('.container-fluid').fadeOut(700);
+	$('.bg-bubbles').fadeOut(700);
+	$('.mcw').fadeOut(700);
+	$('.msb').fadeOut(700);
+	$('.mnb').fadeOut(700);
+	setTimeout(() => {
+		document.location.reload(true);
+	},700);
+});
+
+// Take input field value, pase it in lunux cmd and return responce
+function postCMD(){
+	var cmdDir = $("#cmdDirInput").val();
+
+	$(".commandOutput").val($(".commandOutput").val() + ("\n\n"+cmdDir + "> " + $("#cmdInput").val()) + "\n");
+	$.post( "../manage/execCmd.php", { cmd: "cd " + cmdDir + "; " + $("#cmdInput").val()})
+  		.done(function( data ) {
+    		$(".commandOutput").val($(".commandOutput").val() + data);
+			(document.getElementsByClassName('commandOutput')[0]).scrollTop =  (document.getElementsByClassName('commandOutput')[0]).scrollHeight;
+  		});
+	$("#cmdInput").val("");
+}
+$("#consoleButton").click(function(){
+	postCMD();
+});
+$("#cmdInput").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        postCMD();
+    }
+});

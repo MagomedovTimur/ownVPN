@@ -1,3 +1,13 @@
+<?php
+
+	session_start();
+	if ($_SESSION['logged'] !== TRUE){
+		header("Location: /login");
+		die();
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -21,8 +31,10 @@
 				<div class="navbar-header">
 				  <div>
 					 <p id="msbo"><i class="fa fa-bars"></i> Account</p>
+					 
 				  </div>
 				</div>
+				<p id="logoutBtn"><i class="fa fa-sign-out"></i></p>
 			  </div>
 			</nav>
 			
@@ -139,8 +151,11 @@
 							<div class="col-12">
 								<textarea class="commandOutput" readonly></textarea>
 							</div>
-							<div class="col-11 commandInput">
-								<input type="text" placeholder="Command">
+							<div class="col-9 commandInput">
+								<input id="cmdInput" type="text" placeholder="Command">
+							</div>
+							<div class="col-2 commandDirInput">
+								<input id="cmdDirInput" type="text" placeholder="Working directory">
 							</div>
 							<div class="col-1">
 								<button type="submit" id="consoleButton">Submit</button>

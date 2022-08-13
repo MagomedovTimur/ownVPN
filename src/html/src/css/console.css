@@ -401,3 +401,8 @@ textarea{
 .timeButtonRight{
   cursor: pointer;
 }
+
+#logoutBtn{
+  cursor: pointer;
+  font-size: 2em !important;
+}
