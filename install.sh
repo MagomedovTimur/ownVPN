@@ -5,3 +5,5 @@ git clone https://github.com/MagomedovTimur/ownVPN
 cd ownVPN
 rm -r /var/www/html/
 mv src/html/ /var/www/
+mkdir /opt/ownVPN
+mv src/opt/ /opt/ownVPN/
