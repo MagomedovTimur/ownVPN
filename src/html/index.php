@@ -30,7 +30,7 @@
 			  <div class="container-fluid">
 				<div class="navbar-header">
 				  <div>
-					 <p id="msbo"><i class="fa fa-bars"></i> Account</p>
+					 <p id="msbo"><i class="fa fa-bars"></i> Monitoring</p>
 					 
 				  </div>
 				</div>
@@ -57,10 +57,11 @@
 						<div class="side-menu-container">
 							<ul class="nav navbar-nav">
 
-								<li class="menulink menulinkActive"><a><i class="fa fa-server"></i> Server</a></li>
+								<li class="menulink"><a><i class="fa fa-server"></i> Server</a></li>
 								<li class="menulink"><a><i class="fa fa-users"></i> Clients</a></li>
 								<li class="menulink"><a><i class="fa fa-exchange"></i> Bridges</a></li>
 								<li class="menulink"><a><i class="fa fa-cloud"></i> Networks</a></li>
+								<li class="menulink menulinkActive"><a><i class="fa fa-desktop"></i> Monitoring</a></li>
 								<li class="menulink"><a><i class="fa fa-cogs"></i> Console</a></li>
 
 							</ul>
@@ -73,18 +74,41 @@
 			<div class="mcw" style="display: none;">
 
 				<!-- SERVER wrapper -->
-				<div class="cv" id="msbServer">
+				<div class="cv" id="msbServer" style="display: none;">
 					<div class="container-fluid">
 						<div class="row">
 
-							<div class="col-md-2 card p-3 m-2">
-									<div class="bridgeName">OpenVPN</div>
-									<div class="bridgeIp">Server config</div>
+							<div class="col-md-2 p-3 m-2">
+								Server External IP
+								<input type="text" placeholder="IP address">
 							</div>
 
-							<div class="col-md-2 card p-3 m-2">
-									<div class="bridgeName">OpenVPN</div>
-									<div class="bridgeIp">Client config</div>
+							<div class="col-md-2 p-3 m-2">
+								VPN port
+								<input type="text" placeholder="VPN port">
+							</div>
+
+
+						</div>
+						<div class="row">
+
+							<div class="col-md-2 p-3 m-2">
+									<button type="submit">Remake CA cert and key</button>
+							</div>
+
+							<div class="col-md-2 p-3 m-2">
+									<button type="submit">Remake Server cert and key</button>
+							</div>
+
+						</div>
+						<div class="row">
+
+							<div class="col-md-2 p-3 m-2">
+									<button type="submit">Reboot server</button>
+							</div>
+
+							<div class="col-md-2 p-3 m-2">
+									<button type="submit">Restart VPN service</button>
 							</div>
 
 						</div>
@@ -143,6 +167,28 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- MONITORING wrapper -->
+				<div class="cv" id="msbMonitoring">
+					<div class="container-fluid">
+						<div class="row">
+							<button class="col-md-2 card p-3 m-2 clientCard">
+									<div class="bridgeName">John228</div>
+									<div class="bridgeIp">1 day 23 hours</div>
+							</button>
+
+							<button class="col-md-2 card p-3 m-2 clientCard">
+									<div class="bridgeName">Terminator1337</div>
+									<div class="bridgeIp">Not expirable</div>
+							</button>
+
+							<button id="addBridge" class="col-md-2 card p-3 m-2 text-center">
+								+
+							</button>
+						</div>
+					</div>
+				</div>
+
 
 				<!-- CONSOLE wrapper -->
 				<div class="cv min-vh-100" id="msbConsole" style="display: none;">
