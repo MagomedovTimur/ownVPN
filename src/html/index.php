@@ -6,6 +6,9 @@
 		die();
 	}
 
+	$jsonString = file_get_contents('/opt/ownVPN/config.json');
+    $configData = json_decode($jsonString, true);
+
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +60,11 @@
 						<div class="side-menu-container">
 							<ul class="nav navbar-nav">
 
-								<li class="menulink"><a><i class="fa fa-server"></i> Server</a></li>
+								<li class="menulink menulinkActive"><a><i class="fa fa-server"></i> Server</a></li>
 								<li class="menulink"><a><i class="fa fa-users"></i> Clients</a></li>
 								<li class="menulink"><a><i class="fa fa-exchange"></i> Bridges</a></li>
 								<li class="menulink"><a><i class="fa fa-cloud"></i> Networks</a></li>
-								<li class="menulink menulinkActive"><a><i class="fa fa-desktop"></i> Monitoring</a></li>
+								<li class="menulink "><a><i class="fa fa-desktop"></i> Monitoring</a></li>
 								<li class="menulink"><a><i class="fa fa-cogs"></i> Console</a></li>
 
 							</ul>
@@ -74,18 +77,18 @@
 			<div class="mcw" style="display: none;">
 
 				<!-- SERVER wrapper -->
-				<div class="cv" id="msbServer" style="display: none;">
+				<div class="cv" id="msbServer">
 					<div class="container-fluid">
 						<div class="row">
 
 							<div class="col-md-2 p-3 m-2">
 								Server External IP
-								<input type="text" placeholder="IP address">
+								<input type="text" placeholder="<?php echo $configData['externalIP']; ?>" id="extIPInput">
 							</div>
 
 							<div class="col-md-2 p-3 m-2">
 								VPN port
-								<input type="text" placeholder="VPN port">
+								<input type="text" placeholder="<?php echo $configData['vpnPort']; ?>" id="vpnPortInput">
 							</div>
 
 
@@ -109,6 +112,13 @@
 
 							<div class="col-md-2 p-3 m-2">
 									<button type="submit">Restart VPN service</button>
+							</div>
+
+						</div>
+						<div class="row">
+
+							<div class="col-md-12 p-3 m-2">
+									<button type="submit" id="saveConfig">Submit</button>
 							</div>
 
 						</div>
@@ -169,7 +179,7 @@
 				</div>
 
 				<!-- MONITORING wrapper -->
-				<div class="cv" id="msbMonitoring">
+				<div class="cv" id="msbMonitoring" style="display: none;">
 					<div class="container-fluid">
 						<div class="row">
 							<button class="col-md-2 card p-3 m-2 clientCard">
@@ -298,5 +308,12 @@
 		<script src="src/js/bootstrap.min.js" type="text/javascript"></script>
 		<script src="src/js/jquery.min.js" type="text/javascript"></script>
 		<script src="src/js/console.js" type="text/javascript"></script>
+
+		<script src="src/js/consoleBridges.js" type="text/javascript"></script>
+		<script src="src/js/consoleClients.js" type="text/javascript"></script>
+		<script src="src/js/consoleCMD.js" type="text/javascript"></script>
+		<script src="src/js/consoleMonitoring.js" type="text/javascript"></script>
+		<script src="src/js/consoleNetworks.js" type="text/javascript"></script>
+		<script src="src/js/consoleServer.js" type="text/javascript"></script>
 	</body>
 </html>
