@@ -96,11 +96,7 @@
 						<div class="row">
 
 							<div class="col-md-2 p-3 m-2">
-									<button type="submit">Remake CA cert and key</button>
-							</div>
-
-							<div class="col-md-2 p-3 m-2">
-									<button type="submit">Remake Server cert and key</button>
+									<button type="submit" id="remakeCerts">Remake VPN certs and keys</button>
 							</div>
 
 						</div>

@@ -27,7 +27,7 @@
 			<h1>Welcome</h1>
 			
 			<form id="loginForm" class="form">
-				<input id="username" type="text" placeholder="Username">
+				<input id="login" type="text" placeholder="Login">
 				<input id="password" type="password" placeholder="Password">
 				<button type="submit" id="login-button" onlick="loginPost();">Login</button>
 			</form>

@@ -1,14 +1,20 @@
 <?php
-   include("../config.php");
+    session_start();
 
-   session_start();
+    $jsonString = file_get_contents('/opt/ownVPN/config.json');
+    $data = json_decode($jsonString, true);
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    var_dump($jsonString);
 
-    if($username === $confUsername && $password === $confPassword)
+    $inputLogin = $_POST['login'];
+    $inputPassword = $_POST['password'];
+
+    $confLogin = $data['login'];
+    $confPassword = $data['password'];
+
+    if($inputLogin === $confLogin && $inputPassword === $confPassword)
     {
         $_SESSION['logged'] = TRUE;
     }
-    
+
 ?>

@@ -12,7 +12,7 @@ function unblockAll(){
 
 	event.preventDefault();
 	blockAll();
-	$.post( "login.php", { username: $("#username").val(), password: $("#password").val() });
+	$.post( "login.php", { login: $("#login").val(), password: $("#password").val() });
 	$('form').fadeOut(500);
 	$('.wrapper').addClass('form-success');
 

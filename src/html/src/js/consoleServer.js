@@ -12,3 +12,10 @@ $("#saveConfig").click(function(){
 		document.location.reload(true);
 	},300);
 });
+
+$("#remakeCerts").click(function(){
+	console.log('sosal');
+	$.post( "../manage/remakeCerts.php", {});
+	
+});
+
