@@ -6,5 +6,5 @@ cd ownVPN
 rm -r /var/www/html/
 mv src/html/ /var/www/
 mkdir /opt/ownVPN
-mv src/opt/ /opt/ownVPN/
+mv src/opt/* /opt/ownVPN/
 chmod 777 -R /opt/ownVPN/
